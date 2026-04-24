@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Reclamos</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f6f3f3;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-container {
+            background: rgb(85, 21, 134);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgb(11, 11, 11);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: rgb(243, 238, 238);
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            margin-top: 30px;
+            width: 100%;
+            border-collapse: collapse;
+            background: rgb(243, 240, 240);
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #171717;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: rgb(248, 238, 238);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Sistema de Reclamos</h1>
+
+    <div class="form-container">
+        <form method="POST">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="tipo" placeholder="Tipo de problema" required>
+            <textarea name="problema" placeholder="Describe el problema" required></textarea>
+
+            <button type="submit">Enviar Reclamo</button>
+        </form>
+    </div>
+
+    <h2>Lista de Reclamos</h2>
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Problema</th>
+        </tr>
+
+        {% for r in reclamos %}
+        <tr>
+            <td>{{ r[0] }}</td>
+            <td>{{ r[2] }}</td>
+            <td>{{ r[1] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
